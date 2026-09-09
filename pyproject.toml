@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openmonitor"
+version = "0.1.0"
+description = "Local command watchers that wake an existing Codex thread without model polling"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "David Proctor"}]
+classifiers = ["Operating System :: POSIX", "Programming Language :: Python :: 3"]
+
+[project.scripts]
+openmonitor = "openmonitor.cli:main"
+
+[project.urls]
+Repository = "https://github.com/dp-pcs/openmonitor"
+
+[tool.setuptools.packages.find]
+include = ["openmonitor*"]
+
+[tool.setuptools.data-files]
+"share/openmonitor/skills/openmonitor" = ["skills/openmonitor/SKILL.md"]

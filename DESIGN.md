@@ -1,6 +1,7 @@
-# OpenMonitor: proposed public v1
+# OpenMonitor: public v1 design
 
-Status: design for review; implementation and live end-to-end validation pending.
+Status: approved 2026-09-09; implemented with regression tests. See
+[verification results](docs/verification.md) for live compatibility evidence.
 Research date: 2026-09-09. Local tools: Codex CLI 0.153.4, Claude Code 2.1.266.
 
 ## Outcome
@@ -38,6 +39,8 @@ These are documented external contracts. Claude Code's internal scheduler is not
 public source in the material inspected. We have not reverse engineered it or
 independently reproduced its reported bugs. Do not describe this research as proof
 of its exact internal implementation, or describe open reports as confirmed causes.
+An isolated [Claude CLI probe](docs/claude-probe.md) advertised Monitor but failed
+authentication before executing it; this is not evidence of a monitor defect.
 
 ## Lessons with evidence
 
@@ -165,7 +168,11 @@ session ownership cleanup without a reliable session lifecycle subscription.
    out of Git. Include a license, CI, installation instructions, explicit support
    limits, and the evidence above.
 
-## Review decision
+## Approved decision
 
-Approve the CLI + Codex skill design, or choose the custom-client/native-fork
-alternative before implementation. No public repository has been created yet.
+The user approved the CLI + Codex skill design on 2026-09-09. Implementation is
+published at [dp-pcs/openmonitor](https://github.com/dp-pcs/openmonitor).
+Delivery runs from the private state directory so a command removing its own
+working directory cannot prevent the completion notification. Internal worker
+launches are single-use; explicit retry never reruns the command. Stop and retry
+startup serialize through the registry lock so retry cannot erase a newer stop.

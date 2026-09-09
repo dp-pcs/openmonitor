@@ -16,20 +16,20 @@ No automatic retries after ambiguous submission. No sandbox bypass. No model cal
 
 ## Tasks
 
-- [ ] Implement state and supervisor (`openmonitor/state.py`, `supervisor.py`) and
+- [x] Implement state and supervisor (`openmonitor/state.py`, `supervisor.py`) and
   CLI (`cli.py`, `__main__.py`). Start with black-box tests in `tests/test_cli.py`:
   `start --mode exit -- python -c 'print("done")'` must detach, preserve bytes,
   and submit once to a fake Codex executable. Run `python -m unittest discover -s tests -v`
   before implementation to establish the expected failure, then after each feature.
-- [ ] Add regressions using real child processes for nonzero exit, missing executable,
+- [x] Add regressions using real child processes for nonzero exit, missing executable,
   stderr, UTF-8 split writes, flood limits, quiet streams, duplicate names, stop,
   timeout, failed delivery, retry and grandchildren cleanup. A fake queue command
   isolates only the external submission boundary; all process lifecycle logic is real.
-- [ ] Create README, MIT license, `skills/openmonitor/SKILL.md`, packaging and CI.
+- [x] Create README, MIT license, `skills/openmonitor/SKILL.md`, packaging and CI.
   Instructions must distinguish queued from processed and preserve authorization boundaries.
-- [ ] Independently review concurrency, cancellation and private state handling.
+- [x] Independently review concurrency, cancellation and private state handling.
   Resolve findings and run full regression suite; validate installed CLI in a clean venv.
-- [ ] Run isolated App Server integration and real-model wakeup with explicit thread
+- [x] Run isolated App Server integration and real-model wakeup with explicit thread
   identity. Prove first turn ends before watcher completion; no inference while quiet;
   next turn is triggered by queued event. Record only sanitized results in docs.
 - [ ] Inspect exact staged files, publish public repo, create implementation PR,
