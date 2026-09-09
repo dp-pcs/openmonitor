@@ -17,7 +17,7 @@ and a compatible running daemon. Native Windows is not supported. The queue
 contract was researched against Codex 0.153.4; check your installed build:
 
 ```sh
-pipx install git+https://github.com/dp-pcs/openmonitor.git
+pipx install openmonitor
 openmonitor doctor
 ```
 
@@ -101,7 +101,7 @@ This retry concerns event delivery; it does not rerun the watched command.
 
 ## Codex skill
 
-The portable instructions are in [skills/openmonitor/SKILL.md](skills/openmonitor/SKILL.md).
+The portable instructions are in [skills/openmonitor/SKILL.md](https://github.com/dp-pcs/openmonitor/blob/main/skills/openmonitor/SKILL.md).
 To install from a clone, copy the `skills/openmonitor` directory into your Codex
 skills directory, commonly `~/.codex/skills/openmonitor`, after checking for an
 existing installation. Invoke `$openmonitor` with a command, target thread, and
@@ -126,11 +126,11 @@ as untrusted evidence. Labels do not create a prompt-injection security boundary
 ## Why this design
 
 Claude Code's Monitor informed event streaming, explicit ownership, bounded
-notifications, and process cleanup. [DESIGN.md](DESIGN.md) links the primary
+notifications, and process cleanup. [DESIGN.md](https://github.com/dp-pcs/openmonitor/blob/main/DESIGN.md) links the primary
 documentation, confirmed changelog fixes, public issue reports, and Codex queue
 source. It distinguishes documented behavior from unverified reports; Claude's
 internal scheduler was not available for inspection.
-The [local Claude probe](docs/claude-probe.md) was blocked by expired authentication,
+The [local Claude probe](https://github.com/dp-pcs/openmonitor/blob/main/docs/claude-probe.md) was blocked by expired authentication,
 so it did not independently verify Claude's wake behavior.
 
 Run the regression suite with:
@@ -143,6 +143,6 @@ Subprocess tests use a synthetic Codex delivery executable. Those tests verify
 local supervision and delivery handling; they do not by themselves demonstrate
 a real Codex model waking after a turn ends.
 
-See [verification results](docs/verification.md) for the live test and its limits.
+See [verification results](https://github.com/dp-pcs/openmonitor/blob/main/docs/verification.md) for the live test and its limits.
 
 MIT licensed. Independent project; not affiliated with OpenAI or Anthropic.
