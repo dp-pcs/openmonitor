@@ -235,6 +235,18 @@ sys.exit(int(os.environ.get('TEST_QUEUE_EXIT', '0')))
         self.assertEqual(self.wait(ident)['process_state'], 'cancelled')
         self.assertEqual(self.messages(), [])
 
+    def test_abrupt_supervisor_loss_is_not_reported_as_healthy(self):
+        # This child expires by itself; SIGKILL cannot run the supervisor's cleanup.
+        ident = self.start('import time; time.sleep(.5)')
+        info = self.wait(ident, lambda s: 'command_pid' in s)
+        os.kill(info['supervisor_pid'], signal.SIGKILL)
+        status = self.wait(ident)
+        self.assertEqual(status['process_state'], 'failed')
+        self.assertIn('supervisor_lost', status['stop_reason'])
+        self.assertEqual(self.messages(), [])
+        # Let the explicitly bounded fixture exit before its temporary state is removed.
+        time.sleep(.6)
+
     def test_unsupported_codex_fails_before_running_command(self):
         self.fake.write_text('#!/bin/sh\nexit 2\n')
         result = self.cli('start', '--thread', str(uuid.uuid4()), '--name', 'unsupported',

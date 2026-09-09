@@ -2,7 +2,7 @@
 
 ## Local regression and packaging
 
-The 24-test standard-library suite passed locally on Python 3.14.5/macOS. It
+The 25-test standard-library suite passed locally on Python 3.14.5/macOS. It
 exercises real subprocesses with a synthetic Codex submission boundary, including
 stderr failures, partial UTF-8, output and event limits, cancellation, slow and
 ambiguous delivery, process-group cleanup, retry/stop ordering, duplicate-launch
