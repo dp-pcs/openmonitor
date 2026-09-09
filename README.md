@@ -30,6 +30,10 @@ the Codex skill or change global configuration automatically.
 Use the exact UUID of the conversation that should receive events. Do not pick
 the most recent thread as a shortcut. Replace `THREAD_UUID` below:
 
+In runtimes that supply `CODEX_THREAD_ID`, use that trusted current-thread value.
+The queue command must reach the app-server that owns the session; use `--remote`
+for an explicit endpoint. `doctor` checks CLI capability, not thread visibility.
+
 ```sh
 # One completion event, including failure diagnostics.
 openmonitor start --thread THREAD_UUID --name build --mode exit -- make test

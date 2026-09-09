@@ -13,6 +13,7 @@ delivery. Do not install software or change global configuration implicitly.
 ## Start and yield
 
 Obtain the exact target thread UUID from trusted runtime context or the user.
+When the runtime supplies `CODEX_THREAD_ID`, it can identify the current thread.
 Never infer it from the newest session. Target the persistent parent conversation
 when work must outlive a subagent. If no reliable target is available, ask for it.
 

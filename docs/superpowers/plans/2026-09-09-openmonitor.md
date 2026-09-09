@@ -32,5 +32,7 @@ No automatic retries after ambiguous submission. No sandbox bypass. No model cal
 - [x] Run isolated App Server integration and real-model wakeup with explicit thread
   identity. Prove first turn ends before watcher completion; no inference while quiet;
   next turn is triggered by queued event. Record only sanitized results in docs.
-- [ ] Inspect exact staged files, publish public repo, create implementation PR,
+- [x] Inspect exact staged files, publish public repo, create implementation PR,
   require green CI before merge, and read back remote default branch and visibility.
+
+Published through PR #1; all four platform/Python checks passed before merge.
