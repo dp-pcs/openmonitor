@@ -126,6 +126,8 @@ notifications, and process cleanup. [DESIGN.md](DESIGN.md) links the primary
 documentation, confirmed changelog fixes, public issue reports, and Codex queue
 source. It distinguishes documented behavior from unverified reports; Claude's
 internal scheduler was not available for inspection.
+The [local Claude probe](docs/claude-probe.md) was blocked by expired authentication,
+so it did not independently verify Claude's wake behavior.
 
 Run the regression suite with:
 

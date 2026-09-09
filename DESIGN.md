@@ -39,6 +39,8 @@ These are documented external contracts. Claude Code's internal scheduler is not
 public source in the material inspected. We have not reverse engineered it or
 independently reproduced its reported bugs. Do not describe this research as proof
 of its exact internal implementation, or describe open reports as confirmed causes.
+An isolated [Claude CLI probe](docs/claude-probe.md) advertised Monitor but failed
+authentication before executing it; this is not evidence of a monitor defect.
 
 ## Lessons with evidence
 

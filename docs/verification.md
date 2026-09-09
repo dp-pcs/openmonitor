@@ -1,5 +1,19 @@
 # Verification
 
+## Local regression and packaging
+
+The 24-test standard-library suite passed locally on Python 3.14.5/macOS. It
+exercises real subprocesses with a synthetic Codex submission boundary, including
+stderr failures, partial UTF-8, output and event limits, cancellation, slow and
+ambiguous delivery, process-group cleanup, retry/stop ordering, duplicate-launch
+rejection, and a removed command working directory. A fresh virtual environment
+installed the wheel and successfully ran a detached fixture from outside the
+checkout. The wheel also includes the portable skill file.
+
+GitHub Actions runs the same suite on Python 3.11 and 3.14, on macOS and Linux.
+Consult the [current CI runs](https://github.com/dp-pcs/openmonitor/actions) for
+remote results; the real-model fixture below is opt-in and excluded from CI.
+
 ## Live Codex wakeup
 
 On September 9, 2026, the opt-in fixture passed against **codex-cli 0.153.4** on macOS ARM64, with the locally configured direct OpenAI provider and `gpt-6-astra` model. No global configuration or existing daemon was changed.

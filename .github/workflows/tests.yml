@@ -1,5 +1,11 @@
 name: tests
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
